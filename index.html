@@ -23,8 +23,8 @@
             position: relative;
         }
         .envelope {
-            width: 600px;
-            height: 400px;
+            width: 60vw; /* Cambiado a viewport width */
+            height: 40vh; /* Cambiado a viewport height */
             background: #db2121;
             position: relative;
             border-radius: 10px;
@@ -61,7 +61,7 @@
             color: white;
             font-family: 'Caveat', sans-serif;
             font-weight: 700;
-            font-size: 36px;
+            font-size: 5vw; /* Cambiado a viewport width */
             position: absolute;
             top: 50%;
             left: 50%;
@@ -79,31 +79,31 @@
         .message-box {
             background: white;
             color: black;
-            padding: 30px;
+            padding: 3vh; /* Cambiado a viewport height */
             border-radius: 12px;
             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-            max-width: 420px;
+            max-width: 42vw; /* Cambiado a viewport width */
             margin: auto;
             animation: fadeIn 0.6s ease; /* Duración más corta */
             transition: opacity 0.3s ease; /* Transición más rápida */
         }
         .message-box p {
-            font-size: 20px;
+            font-size: 2.5vw; /* Cambiado a viewport width */
             font-family: 'Georgia', serif;
             line-height: 1.5;
         }
         .buttons {
-            margin-top: 20px;
+            margin-top: 2vh; /* Cambiado a viewport height */
         }
         .btn {
             background: #d6336c;
             color: white;
-            padding: 12px 22px;
+            padding: 1.5vh 2.5vw; /* Cambiado a viewport height y width */
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 18px;
-            margin: 10px;
+            font-size: 2.5vw; /* Cambiado a viewport width */
+            margin: 1vh; /* Cambiado a viewport height */
             font-weight: bold;
             transition: background 0.2s ease, transform 0.2s ease; /* Menor duración */
         }
@@ -115,16 +115,17 @@
             position: absolute;
         }
         .yay {
-            font-size: 28px;
+            font-size: 4vw; /* Cambiado a viewport width */
             color: #d6336c;
             font-weight: bold;
             animation: fadeIn 0.6s ease; /* Duración más corta */
             transition: opacity 0.3s ease; /* Transición más rápida */
         }
         .yay img {
-            margin-top: 20px;
+            margin-top: 2vh; /* Cambiado a viewport height */
             border-radius: 10px;
             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+            width: 30vw; /* Cambiado a viewport width */
         }
         @keyframes bounce {
             0% { transform: translate(0, 0); }
@@ -137,11 +138,39 @@
         }
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-2vh); } /* Cambiado a viewport height */
             100% { transform: translateY(0px); }
         }
         .floating {
             animation: float 2s ease-in-out infinite; /* Animación más rápida */
+        }
+
+        /* Media queries para ajustes adicionales en pantallas pequeñas */
+        @media (max-width: 768px) {
+            .envelope {
+                width: 80vw; /* Ajuste para pantallas más pequeñas */
+                height: 50vh; /* Ajuste para pantallas más pequeñas */
+            }
+            .envelope .message-text {
+                font-size: 6vw; /* Ajuste para pantallas más pequeñas */
+            }
+            .message-box {
+                max-width: 60vw; /* Ajuste para pantallas más pequeñas */
+                padding: 2vh; /* Ajuste para pantallas más pequeñas */
+            }
+            .message-box p {
+                font-size: 3.5vw; /* Ajuste para pantallas más pequeñas */
+            }
+            .btn {
+                font-size: 3.5vw; /* Ajuste para pantallas más pequeñas */
+                padding: 1.5vh 3vw; /* Ajuste para pantallas más pequeñas */
+            }
+            .yay {
+                font-size: 6vw; /* Ajuste para pantallas más pequeñas */
+            }
+            .yay img {
+                width: 50vw; /* Ajuste para pantallas más pequeñas */
+            }
         }
     </style>
 </head>

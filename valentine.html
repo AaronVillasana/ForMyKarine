@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Karine 💖</title>
+    <style>
+        /* Asegúrate de cargar la fuente desde Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to bottom, #ffebf0, #ffc2d1);
+            font-family: 'Caveat', serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+        }
+        .envelope {
+            width: 600px;
+            height: 400px;
+            background: #db2121;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Menor duración */
+            transform-style: preserve-3d;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .envelope:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .envelope.open:before {
+            transform: rotateX(0deg);
+            transition: transform 0.4s ease; /* Menor duración */
+        }
+        .envelope:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ee2828;
+            border-radius: 10px;
+            z-index: 0;
+        }
+
+        /* Se aplica la fuente y el peso aquí */
+        .envelope .message-text {
+            color: white;
+            font-family: 'Caveat', sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .seal:hover {
+            transform: translateX(-50%) scale(1.1);
+            transition: transform 0.2s ease; /* Transición más rápida */
+        }
+        .hidden {
+            display: none;
+        }
+        .message-box {
+            background: white;
+            color: black;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+            max-width: 420px;
+            margin: auto;
+            animation: fadeIn 0.6s ease; /* Duración más corta */
+            transition: opacity 0.3s ease; /* Transición más rápida */
+        }
+        .message-box p {
+            font-size: 20px;
+            font-family: 'Georgia', serif;
+            line-height: 1.5;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            background: #d6336c;
+            color: white;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px;
+            font-weight: bold;
+            transition: background 0.2s ease, transform 0.2s ease; /* Menor duración */
+        }
+        .btn:hover {
+            background: #a82450;
+            transform: scale(1.05); /* Ligero aumento */
+        }
+        .no-btn {
+            position: absolute;
+        }
+        .yay {
+            font-size: 28px;
+            color: #d6336c;
+            font-weight: bold;
+            animation: fadeIn 0.6s ease; /* Duración más corta */
+            transition: opacity 0.3s ease; /* Transición más rápida */
+        }
+        .yay img {
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+        }
+        @keyframes bounce {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(20px, 20px); }
+            100% { transform: translate(-20px, -20px); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 2s ease-in-out infinite; /* Animación más rápida */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="envelope floating" onclick="openEnvelope()">
+            <div class="message-text">For My Karine</div> <!-- Aquí se aplica la fuente Caveat con peso 700 -->
+        </div>
+    </div>
+    <div id="message" class="hidden">
+        <div class="message-box">
+            <p>My love, you are my sunshine, my sweetest dream, my greatest treasure. Every moment with you is magic, and I cherish you more than words can say. 💕</p>
+            <p><strong>Will you be my Valentine?</strong></p>
+            <div class="buttons">
+                <button class="btn" onclick="sayYes()">Yes 💖</button>
+                <button class="btn no-btn" onclick="sayNo()" id="noBtn">No 💔</button>
+            </div>
+        </div>
+    </div>
+    <div id="yay" class="hidden yay">
+        Yayyy! 🎉🎊<br>
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGg2bnYwdjVvZ3RweTZhNXMyYWtkdWRpYzUwcjhncjFjMnpwZGozMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1JmGiBtqTuehfYxuy9/giphy.gif" alt="Bear Hug">
+    </div>
+    <script>
+        function openEnvelope() {
+            document.querySelector('.envelope').classList.add('open');
+            setTimeout(() => {
+                document.querySelector('.envelope').style.display = 'none';
+                document.getElementById('message').classList.remove('hidden');
+            }, 400); /* Transición más rápida */
+        }
+        function sayYes() {
+            document.getElementById('message').style.display = 'none';
+            document.getElementById('yay').classList.remove('hidden');
+        }
+        function sayNo() {
+            let noBtn = document.getElementById('noBtn');
+            noBtn.style.position = 'absolute';
+            noBtn.style.animation = 'bounce 0.4s ease-in-out infinite alternate'; /* Animación más rápida */
+        }
+    </script>
+</body>
+</html>
